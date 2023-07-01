@@ -24,13 +24,7 @@ public class Main {
             double descontoINSS = descontoINSS(salarioBruto);
             double descontoIRPF = descontoIRPF(salarioBruto - descontoINSS);
             double salarioLiquido = salarioBruto - descontoINSS - descontoIRPF;
-            System.out.println();
-            System.out.println("Salário " + (i+1));
-            System.out.println("--------------------");
-            System.out.printf("Salário bruto: %.2f\n", salarioBruto);
-            System.out.printf("Desconto INSS: %.2f\n", descontoINSS);
-            System.out.printf("Desconto Imposto de renda: %.2f\n", descontoIRPF);
-            System.out.printf("Salário líquido: %.2f\n", salarioLiquido);
+            mostrarResumo(i, salarioBruto,descontoINSS, descontoIRPF, salarioLiquido);
 
         }
 
@@ -68,6 +62,18 @@ public class Main {
         else if (salario >= 2826.66) return salario*0.15;
         else if (salario >= 1903.99) return salario*0.075;
         else return 0.00;
+
+    }
+
+    public static void mostrarResumo(int i, double salarioBruto, double descontoINSS, double descontoIRPF, double salarioLiquido ){
+
+        System.out.println();
+        System.out.println("Salário " + (i+1));
+        System.out.println("--------------------");
+        System.out.printf("Salário bruto: %.2f\n", salarioBruto);
+        System.out.printf("Desconto INSS: %.2f\n", descontoINSS);
+        System.out.printf("Desconto Imposto de renda: %.2f\n", descontoIRPF);
+        System.out.printf("Salário líquido: %.2f\n", salarioLiquido);
 
     }
 }
