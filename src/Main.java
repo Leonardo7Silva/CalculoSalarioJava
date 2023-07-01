@@ -22,7 +22,7 @@ public class Main {
         for(int i = 0; i < salarios.length; i++){
             double salarioBruto = salarios[i];
             double descontoINSS = descontoINSS(salarioBruto);
-            double descontoIRPF = descontoIRPF(salarioBruto);
+            double descontoIRPF = descontoIRPF(salarioBruto - descontoINSS);
             double salarioLiquido = salarioBruto - descontoINSS - descontoIRPF;
             System.out.println();
             System.out.println("Salário " + (i+1));
@@ -39,11 +39,26 @@ public class Main {
 
     public static double descontoINSS(double salarioBruto){
 
-        if(salarioBruto > 7087.22) return salarioBruto*0.14;
-        else if (salarioBruto >= 3641.04) return salarioBruto*0.14;
-        else if (salarioBruto >= 2427.36) return salarioBruto*0.12;
-        else if (salarioBruto >= 1212.01) return salarioBruto*0.09;
-        else return salarioBruto*0.075;
+        if (salarioBruto >= 3641.04){
+
+            double calculo = (salarioBruto-3641.03)*0.14;
+            double acumulado = 1212*0.075 + (2427.35 - 1212)*0.09 + (3641.03 - 2427.35)*0.12;
+            return calculo + acumulado;
+
+        }
+        else if (salarioBruto >= 2427.36){
+
+            double calculo = (salarioBruto-2427.35)*0.12;
+            double acumulado = 1212*0.075 + (2427.35 - 1212)*0.09;
+            return calculo + acumulado;
+
+        } else if (salarioBruto >= 1212.01){
+
+            double calculo = (salarioBruto-1212)*0.09;
+            double acumulado = 1212*0.075;
+            return calculo + acumulado;
+
+        } else return salarioBruto*0.075;
 
     }
 
