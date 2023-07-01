@@ -12,11 +12,12 @@ public class Main {
         System.out.println("Digite cinco salários. Um de cada vez:");
 
         for(int i = 0; i < salarios.length; i++){
+
             salarios[i] = sc.nextDouble();
             if(i < 4){
                 System.out.println("Próximo:");
-            };
-        };
+            }
+        }
 
         for(int i = 0; i < salarios.length; i++){
             double salarioBruto = salarios[i];
@@ -31,7 +32,7 @@ public class Main {
             System.out.printf("Desconto Imposto de renda: %.2f\n", descontoIRPF);
             System.out.printf("Salário líquido: %.2f\n", salarioLiquido);
 
-        };
+        }
 
         sc.close();
     }
@@ -44,7 +45,7 @@ public class Main {
         else if (salarioBruto >= 1212.01) return salarioBruto*0.09;
         else return salarioBruto*0.075;
 
-    };
+    }
 
     public static double descontoIRPF(double salarioBruto){
 
@@ -54,5 +55,5 @@ public class Main {
         else if (salarioBruto >= 1903.99) return salarioBruto*0.075;
         else return 0.00;
 
-    };
+    }
 }
