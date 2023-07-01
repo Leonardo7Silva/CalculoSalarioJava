@@ -45,8 +45,7 @@ public class Main {
             double acumulado = 1212*0.075 + (2427.35 - 1212)*0.09 + (3641.03 - 2427.35)*0.12;
             return calculo + acumulado;
 
-        }
-        else if (salarioBruto >= 2427.36){
+        } else if (salarioBruto >= 2427.36){
 
             double calculo = (salarioBruto-2427.35)*0.12;
             double acumulado = 1212*0.075 + (2427.35 - 1212)*0.09;
@@ -62,12 +61,12 @@ public class Main {
 
     }
 
-    public static double descontoIRPF(double salarioBruto){
+    public static double descontoIRPF(double salario){
 
-        if(salarioBruto > 4664.68) return salarioBruto*0.275;
-        else if (salarioBruto >= 3751.06) return salarioBruto*0.225;
-        else if (salarioBruto >= 2826.66) return salarioBruto*0.15;
-        else if (salarioBruto >= 1903.99) return salarioBruto*0.075;
+        if(salario > 4664.68) return salario*0.275;
+        else if (salario >= 3751.06) return salario*0.225;
+        else if (salario >= 2826.66) return salario*0.15;
+        else if (salario >= 1903.99) return salario*0.075;
         else return 0.00;
 
     }
